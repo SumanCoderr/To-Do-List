@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 const ToDoItem = ({ todo, toggleComplete, deleteTodo, editTodo }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editText, setEditText] = useState(todo.text);
+  const [isChecked, setIsChecked] = useState(false); 
+
 
   const handleEdit = () => {
     if (editText.trim()) {
@@ -10,6 +12,11 @@ const ToDoItem = ({ todo, toggleComplete, deleteTodo, editTodo }) => {
       setIsEditing(false);
     }
   };
+
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked); 
+  };
+  
 
   return (
     <li className={ todo.completed ? 'completed text-center' : ' text-center'} >
@@ -25,8 +32,13 @@ const ToDoItem = ({ todo, toggleComplete, deleteTodo, editTodo }) => {
         </div>
       ) : (
         <div>
-          <input type="checkbox" id="check"  />
-          <div className='my-2 mx-1 bg-amber-200 inline-block w-50 md:w-120 md:text-2xl text-left p-2 break-words' >{todo.text}</div>
+      <input 
+        type="checkbox" 
+        id="check" 
+        checked={isChecked} 
+        onChange={handleCheckboxChange} 
+      />         
+       <div className={`my-2 mx-1 bg-amber-200 inline-block w-50 md:w-120 md:text-2xl text-left p-2 break-words ${isChecked ? 'line-through' : ''}`} >{todo.text}</div>
           <button className='bg-red-600 text-white h-7 w-13 rounded-2xl cursor-pointer m-1 md:h-10 md:w-14 ' onClick={() => deleteTodo(todo.id)}>Delete</button>
           <button className='bg-green-600 text-white h-7 w-10 rounded-2xl cursor-pointer m-1 md:h-10 md:w-14 ' onClick={() => setIsEditing(true)}>Edit</button>
         </div>

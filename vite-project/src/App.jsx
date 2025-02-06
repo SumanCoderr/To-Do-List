@@ -11,20 +11,10 @@ const App = () => {
       const newTodo = {
         id: Date.now(),
         text: newTask,
-        completed: false,
       };
       setTodos([...todos, newTodo]);
       setNewTask('');
     }
-  };
-
-  const toggleComplete = (id) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-      
-    );
   };
 
   const deleteTodo = (id) => {
@@ -46,7 +36,6 @@ const App = () => {
       <Header newTask={newTask} setNewTask={setNewTask} addTodo={addTodo} />
       <ToDoList
         todos={todos}
-        toggleComplete={toggleComplete}
         deleteTodo={deleteTodo}
         editTodo={editTodo}
       />
