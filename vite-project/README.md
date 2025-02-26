@@ -1,8 +1,11 @@
-# React + Vite
+# How to add new task
+Type task name in text box and then click on add button.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# How to delete task
+click on delete button next to the task.
 
-Currently, two official plugins are available:
+# Edit the existing task
+Click on edit button next to the task.Then a text box will open edit the tast and then click on save button. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Tick task as completed
+Click on check box next to the task.   
